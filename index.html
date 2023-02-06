@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+       
+    }
+    .slider{
+        position: relative;
+    }
+    .sliderelem0{
+        position: absolute;
+        z-index: 0;
+        left: 0;
+        top: 0;
+        visibility: visible;
+        width: 50%;
+    }
+    
+    .slider-elem{
+        position: absolute;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        visibility: hidden;
+        width: 50%;
+    }
+    .arrow-left{
+        position: absolute;
+        z-index: 2;
+        top: 1160px;
+        left: 1300px;      
+        
+    }
+    .arrow-right{
+        position: absolute;
+        z-index: 2;
+       top: 1160px;
+        left: 1460px;      
+    }
+
+    .button{
+        position: absolute;
+        z-index: 2;
+       top: 1225px;
+        left: 1340px;              
+    }
+    .button-text{
+        padding-top: 10px;            
+        padding-bottom: 10px;            
+        padding-left: 30px;            
+        padding-right: 30px; 
+        font-size: 30px;           
+    }
+
+   
+</style>
+<body>
+    <div class="slider">
+        <ul class="slider-list">            
+            <li class="sliderelem0"><img src="/reviews/review1.png" alt="1"></li>
+            <li class="slider-elem"><img src="/reviews/review1.png" alt="1"></li>
+            <li class="slider-elem"><img src="/reviews/review2.png" alt="2"></li>
+            <li class="slider-elem"><img src="/reviews/review3.png" alt="3"></li>
+            
+        </ul>
+
+        <div class="arrow-left"><button class="button-text">Left</button></div>
+        <div class="arrow-right"><button class="button-text">Right</button></div>
+        <div class="button"><button class="button-text">Surprise Me</button></div>
+
+    </div>
+
+    <script>
+        console.log('Задача 8. (не обязательное)Создать мини приложение "О нас" как на скриншотах https://cloud.mail.ru/public/LzSA/zkd3zv17F Вывести название приложение, фото персоны, описание и стрелки  для возможности переключаться между анкетами.');
+
+        const sliderList = document.querySelector('.slider-list');
+        const sliderElem0 = document.querySelector('.sliderelem0');
+        const sliderElem = document.querySelectorAll('.slider-elem');
+        const ButtonLeft = document.querySelector('.arrow-left');
+        const ButtonRight = document.querySelector('.arrow-right');
+
+
+        ButtonLeft.addEventListener('click', function (e) {
+            sliderElem0.classList.toggle('sliderElem0_hidden');
+            Array.from(sliderElem).forEach(elem, arr => {
+                for (var i = 0; i < arr.length; i++) {
+                    elem[i].classList.toggle('elem[i]_visible');
+                }
+            });
+        });
+
+        ButtonRight.addEventListener('click', function (e) {
+            sliderElem0.classList.toggle('sliderElem0_hidden');
+            Array.from(sliderElem).forEach(elem, arr => {
+                for (var i = arr.length - 1; i >= 0; i--) {
+                    elem[i].classList.toggle('elem[i]_visible');
+                }
+            });
+        }); 
+
+
+
+    
+    </script>
+</body>
+</html>
